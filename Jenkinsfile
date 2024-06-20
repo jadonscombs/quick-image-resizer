@@ -1,6 +1,16 @@
 pipeline {
     agent {
-        docker { image 'python:3.10-alpine' }
+        kubernetes {
+            yaml '''
+                apiVersion: v1
+                kind: Pod
+                spec:
+                    containers:
+                    - name: python-container
+                      image: python:3.10-alpine
+            '''
+        }
+
     }
     stages {
         stage('Install Dependencies') {
