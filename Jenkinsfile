@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'python:3.10.14-slim-bullseye' }
+        docker { image 'python:3.10-alpine' }
     }
     stages {
         stage('Install Dependencies') {
