@@ -12,7 +12,6 @@ pipeline {
             }
         }
 
-        /*
         stage('Build') {
             steps {
                 sh 'python -m py_compile custom_parser.py resize.py'
@@ -21,8 +20,6 @@ pipeline {
                 stash(name: 'compiled-results', includes: './*.pyc')
             }
         }
-        */
-
 
     }
 }
