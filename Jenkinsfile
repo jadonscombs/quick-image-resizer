@@ -1,14 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            yaml '''
-                apiVersion: v1
-                kind: Pod
-                spec:
-                    containers:
-                    - name: python-container
-                      image: python:3.10-alpine
-            '''
+            yamlFile 'kubernetes_agent_spec.yaml'
         }
 
     }
@@ -19,6 +12,7 @@ pipeline {
             }
         }
 
+        /*
         stage('Build') {
             steps {
                 sh 'python -m py_compile custom_parser.py resize.py'
@@ -27,6 +21,7 @@ pipeline {
                 stash(name: 'compiled-results', includes: './*.pyc')
             }
         }
+        */
 
 
     }
